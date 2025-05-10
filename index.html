@@ -15,6 +15,14 @@
       background: #f0f0f0;
       overflow: hidden;
     }
+    .fan{
+      position: absolute;
+      width:100vw;
+      height:100vh;
+      z-index: 1;
+      background-image: url("fon.png");
+      background-clip: border-box;
+    }
     #game {
       position: relative;
       width: 100vw;
@@ -52,6 +60,7 @@
   </style>
 </head>
 <body>
+  <div class="fan"></div>
   <div id="game">
     <div class="lane"></div>
     <div class="lane"></div>
@@ -157,6 +166,12 @@
         moveToLane(currentLane + 1);
       }
     });
+    function fan() {
+      setInterval(() => {
+        fonFrame = fonFrame === 1 ? 2 : 3 ? 4 : 5;
+        setPlayerImage(`fon${fonFrame}.png`);
+      }, 200);
+    }
   </script>
 </body>
 </html>
